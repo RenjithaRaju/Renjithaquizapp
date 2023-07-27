@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+   
+</head>
+<div class="nav">
+<div class="nav1">
+
+    <a href="/admindash/"><button type="button" class="btn btn-warning">Add questions</button></a>
+</div>
+
+<div class="nav2">
+    <a href="/logout/"><button type="button" class="btn btn-danger">Logout</button></a>
+</div>
+</div>
+
+
+<style>
+    .nav 
+    {
+        background-color: rgb(12, 26, 12);
+        height: 10vh;
+    }
+    .nav1
+    {
+      margin-left: 50px;
+      margin-top: 20px;
+    }
+    
+    .nav2
+    {
+        margin-left: 900px;  
+        margin-top: 20px;
+    }
+    .container
+    {
+      margin-left: 38px;
+      margin-top: 20px;
+    }
+    
+
+</style>
+<body>
+    <div class="container">
+        <a href="/downloadcsv/"><button type="button" class="btn btn-warning">Download CSV</button></a>
+        <div class="title">
+            <h3 style="text-align:center;color: black;">Students Scores Here!</h3>
+</div><br>
+<div class="table-overflow">
+
+    
+    <table id="example" class="table table-bordered" style="width: 100%;border-color: rgb(20, 1, 1); table-layout: fixed;word-break: break-all;">
+        <thead>
+          <tr>
+           
+            <th class="head" style="color: brown;" scope="col">S.no</th>
+            <th class="head" style="color: brown;"scope="col">Student</th>
+            <th class="head" style="color: brown;"scope="col">Login Time</th>
+            <th class="head" style="color: brown;"scope="col">Score</th>
+            <th class="head" style="color: brown;"scope="col">Percentage</th>
+            <th class="head" style="color: brown;"scope="col">corrected</th>
+            <th class="head" style="color: brown;"scope="col">wrong</th>
+            <th class="head" style="color: brown;"scope="col">Total</th>
+            <th class="head" style="color: brown;"scope="col">Date&Time</th>
+            
+          </tr>
+          
+        </thead>
+        {% for i in dataview %}
+        <tbody>
+            <tr>
+
+                <td>{{forloop.counter}}</td>
+                <td>{{i.quiz_id.username}}</td>
+                <td>{{i.quiz_id.logintime}}</td>
+                <td>{{i.quiz_score}}</td>
+                <td>{{i.quiz_percent}}</td>
+                <td>{{i.quiz_cottect}}</td>
+                <td>{{i.quiz_wrong}}</td>
+                <td>{{i.quiz_total}}</td>
+                <td>{{i.quiz_date}}---{{i.quiz_time}}</td>
+            </tr>
+            
+
+      </tbody>
+        
+     {% endfor %}
+    </table>
+
+</div>
+ </div>     
+</body>
+ </html>
